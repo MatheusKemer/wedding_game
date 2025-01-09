@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, redirect, url_for, request
+from flask import Flask, render_template, session, redirect, url_for, request, flash
 import random
 import csv
 import ipdb
@@ -128,9 +128,12 @@ def character_page(character_name):
     character = next((char for char in characters if char['name'] == character_name), None)
     return render_template("character.html", character=character)
 
-@app.route("/accuse", methods=["POST"])
-def accuse():
-    return redirect(url_for("guests_page"))
+@app.route("/accuse/<character_name>", methods=["POST"])
+def accuse(character_name):
+    character = next((char for char in characters if char['name'] == character_name), None)
+    if (character["role"] != "Killer"):
+        flash("You accused an innocent")
+    return redirect(request.referrer)
 
 @app.route("/tasks/<role>/<character>")
 def tasks_page(role, character):

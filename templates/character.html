@@ -12,19 +12,37 @@
         <header>
             <h1>Game</h1>
         </header>
+
+        
         <div class="content">
             <img src="/assets/Couple.png" alt="Victorian Frame" class="frame">
             <h2>{{ character.name }}</h2>
             <p style="text-align: center;">
                 {{ character.bio }}
             </p>
-            <form action="/accuse" method="post">
+            <form action="/accuse/{{ character.name }}" method="post">
                 <button class="start-button"
                 onclick="if(!confirm('Are you sure about that?'))event.preventDefault()"
                 >
-                    This person is the killer!
-                </button>
-            </form>
+                This person is the killer!
+            </button>
+        </form>
+        <br>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">
+                    {{ message }}
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        <br>
+        <a href="/game" class="start-button">
+            Go back
+        </a>
     </div>
 </body>
 </html>

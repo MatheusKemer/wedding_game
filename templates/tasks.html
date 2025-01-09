@@ -50,14 +50,16 @@
             <!-- Intuito Sherlockiano -->
             <div id="sherlockian-intuition" class="sherlockian-intuition">
                 <h3>Intuito Sherlockiano</h3>
-                <p>Usa una mossa speciale una sola volta durante il gioco:</p>
-                <form action="/use_special" method="POST">
-                    <input type="hidden" name="character" value="{{ character }}">
-                    <input type="hidden" name="role" value="{{ role }}">
-                    <button id="special-move-button" class="start-button" {% if special_move_used %}disabled{% endif %}>
-                        Usa la Mossa Speciale
-                    </button>
-                </form>
+                {% if not special_move_used %}
+                  <p>Usa una mossa speciale una sola volta durante il gioco:</p>
+                  <form action="/use_special" method="POST">
+                      <input type="hidden" name="character" value="{{ character }}">
+                      <input type="hidden" name="role" value="{{ role }}">
+                      <button id="special-move-button" class="start-button" {% if special_move_used %}disabled{% endif %}>
+                          Usa la Mossa Speciale
+                      </button>
+                  </form>
+                {% endif %}
                 {% if special_move_used %}
                     <p id="special-move-result" class="special-move-result">Mossa usata: {{ special_ability_used }}</p>
                 {% endif %}

@@ -1,6 +1,7 @@
 from flask import Flask, render_template, session, redirect, url_for, request
 import random
 import csv
+import ipdb
 
 app = Flask(__name__, static_folder="assets", template_folder="templates")
 app.secret_key = "wedding_mystery_secret"
@@ -15,14 +16,15 @@ with open('Wedding_Game_Characters(2).csv', 'r') as char_file:
     reader = csv.DictReader(char_file)
     for row in reader:
         characters.append({
+            "id": row["ID"],
             "name": row["Character"],
-            "gender": row["Gender"]
+            "bio": row["Bio"],
+            "gender": row["Gender"],
+            "role": row["Role"],
+            "special_power_name": row["Special Power Name"],
+            "special_power_description": row["Special Power Description"],
+            "is_active": False,
         })
-
-with open('Special_Power_Descriptions(1).csv', 'r') as power_file:
-    reader = csv.DictReader(power_file)
-    for row in reader:
-        special_powers[row["Character"]] = row["Special Power"]
 
 tasks = {
     "Killer": [
@@ -65,8 +67,7 @@ def select_gender():
 def assign_character():
     if "character" not in session and "role" not in session:
         available_characters = [
-            char for char in characters
-            if char["gender"] == session["gender"] and char["name"] not in used_characters
+            char for char in characters if char["gender"] == session["gender"] and char["name"] not in used_characters
         ]
 
         if not available_characters:
@@ -136,6 +137,8 @@ def tasks_page(role, character):
             victim = player.get("victim")
             break
 
+    character_name = character
+
     return render_template(
         "tasks.html",
         role=role,
@@ -144,7 +147,7 @@ def tasks_page(role, character):
         special_move_used=special_move_used,
         special_ability_used=special_ability_used,
         victim=victim,
-        special_power=special_powers.get(character, "Nessuna abilità speciale disponibile")
+        special_power = [character["special_power_name"] for character in characters if character["name"] == character_name]
     )
 
 
@@ -152,11 +155,12 @@ def tasks_page(role, character):
 def use_special():
     character = request.form.get("character")
     role = request.form.get("role")
+    character_name = character
 
     if any(ability["character"] == character for ability in special_abilities):
         return redirect(url_for("tasks_page", role=role, character=character))
 
-    ability = special_powers.get(character, "Nessuna abilità speciale disponibile")
+    ability = [character["special_power_name"] for character in characters if character["name"] == character_name]
     special_abilities.append({"character": character, "ability": ability})
 
     return redirect(url_for("tasks_page", role=role, character=character))

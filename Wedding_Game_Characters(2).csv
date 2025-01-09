@@ -1,14 +1,14 @@
-ID,Character,Bio,Gender,Role,Special Power Name,Active
-1,Violet Hunter,A perceptive governess renowned for resolving disputes in noble households.,Female,Victim,Insightful Gaze,on
-2,Effie Munro,A reserved yet enigmatic widow drawn by whispers of the bride and groom's reputations.,Female,Killer,Calm Resolve,on
-3,Isadora Klein,"Known for her extravagant style and sharp wit, she aims to delve into secrets and expand her network.",Female,Victim,Social Butterfly,on
-4,Mary Sutherland,"A quiet and unassuming guest, thriving on noticing details others miss.",Female,Victim,Clear Eye,on
-5,Kitty Winter,"A magnetic figure intrigued by cryptic invitations, hiding alluring and dangerous motives.",Female,Victim,Persuasive Charm,on
-6,Helen Stoner,A survivor seeking answers to mysteries haunting her past.,Female,Victim,Resilient Spirit,on
-7,Enoch Drebber,A brilliant yet volatile physician known for dramatic outbursts.,Male,Victim,Physician’s Hands,on
-8,Sebastian Moran,"A dangerous adversary and second-in-command to Moriarty, present under a false identity.",Male,Victim,Shadow Move,on
-9,James Ryder,"A custodian with a troubled past, seeking redemption.",Male,Victim,Swift Escape,on
-10,Reginald Grave,An aristocrat drawn by intellectual challenges and traditions.,Male,Victim,Royal Insight,on
-11,Victor Hatherley,An overconfident inventor attending to pitch his latest risky invention.,Male,Killer,Tinkerer’s Edge,on
-12,Godfrey Staunton,A former athlete aiming to reform his character while mingling.,Male,Victim,Quick Reflexes,on
-13,Elias Openshaw,"A guest burdened by family curses, seeking answers.",Male,Victim,Keeper of Secrets,on
+ID,Character,Bio,Gender,Role,Special Power Name,Active,Special Power Description
+1,Violet Hunter,A perceptive governess renowned for resolving disputes in noble households.,Female,Victim,Insightful Gaze,on,Determine if a specific event was influenced by a killer.
+2,Effie Munro,A reserved yet enigmatic widow drawn by whispers of the bride and groom's reputations.,Female,Killer,Calm Resolve,on,Protect a guest from elimination for 20 minutes.
+3,Isadora Klein,"Known for her extravagant style and sharp wit, she aims to delve into secrets and expand her network.",Female,Victim,Social Butterfly,on,Receive a free clue from the groom.
+4,Mary Sutherland,"A quiet and unassuming guest, thriving on noticing details others miss.",Female,Victim,Clear Eye,on,Identify one innocent player.
+5,Kitty Winter,"A magnetic figure intrigued by cryptic invitations, hiding alluring and dangerous motives.",Female,Victim,Persuasive Charm,on,Convince another guest to perform a task on their behalf.
+6,Helen Stoner,A survivor seeking answers to mysteries haunting her past.,Female,Victim,Resilient Spirit,on,Restore a sabotaged clue.
+7,Enoch Drebber,A brilliant yet volatile physician known for dramatic outbursts.,Male,Victim,Physician’s Hands,on,Revive one eliminated guest.
+8,Sebastian Moran,"A dangerous adversary and second-in-command to Moriarty, present under a false identity.",Male,Victim,Shadow Move,on,Secretly switch places with another guest.
+9,James Ryder,"A custodian with a troubled past, seeking redemption.",Male,Victim,Swift Escape,on,Avoid a suspicious task.
+10,Reginald Grave,An aristocrat drawn by intellectual challenges and traditions.,Male,Victim,Royal Insight,on,Determine if a clue is real or fake.
+11,Victor Hatherley,An overconfident inventor attending to pitch his latest risky invention.,Male,Killer,Tinkerer’s Edge,on,Create a sabotaged clue.
+12,Godfrey Staunton,A former athlete aiming to reform his character while mingling.,Male,Victim,Quick Reflexes,on,Interrupt another player’s action to grab a clue.
+13,Elias Openshaw,"A guest burdened by family curses, seeking answers.",Male,Victim,Keeper of Secrets,on,Free clue.

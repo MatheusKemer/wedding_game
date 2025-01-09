@@ -119,6 +119,18 @@ def eliminate_victim():
 
     return redirect(url_for("tasks_page", role=session["role"], character=killer))
 
+@app.route("/game")
+def guests_page():
+    return render_template("guests.html", character=session["character"], role=session["role"], characters=used_characters)
+
+@app.route("/game/<character_name>")
+def character_page(character_name):
+    character = next((char for char in characters if char['name'] == character_name), None)
+    return render_template("character.html", character=character)
+
+@app.route("/accuse", methods=["POST"])
+def accuse():
+    return redirect(url_for("guests_page"))
 
 @app.route("/tasks/<role>/<character>")
 def tasks_page(role, character):

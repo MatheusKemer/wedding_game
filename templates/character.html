@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Game</h1>
+        </header>
+        <div class="content">
+            <img src="/assets/Couple.png" alt="Victorian Frame" class="frame">
+            <h2>{{ character.name }}</h2>
+            <p style="text-align: center;">
+                {{ character.bio }}
+            </p>
+            <form action="/accuse" method="post">
+                <button class="start-button"
+                onclick="if(!confirm('Are you sure about that?'))event.preventDefault()"
+                >
+                    This person is the killer!
+                </button>
+            </form>
+    </div>
+</body>
+</html>

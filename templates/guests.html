@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Game</h1>
+        </header>
+        <div class="content">
+            <img src="/assets/Couple.png" alt="Victorian Frame" class="frame">
+            <h2>Personaggio: {{ character }}</h2>
+            <h3>Ruolo: {{ role }}</h3>
+            <p style="text-align: center;">
+                Other Guests
+            </p>
+
+            <ul class="task-list">
+                {% for character in characters %}
+                    <li>
+                        <a href="/game/{{ character }}">{{ character }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

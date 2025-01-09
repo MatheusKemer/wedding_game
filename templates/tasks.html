@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le tue Task</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Le tue Task</h1>
+        </header>
+        <div class="content">
+            <img src="/assets/Couple.png" alt="Victorian Frame" class="frame">
+            <h2>Personaggio: {{ character }}</h2>
+            <h3>Ruolo: {{ role }}</h3>
+            <p>
+                Completa le task assegnate per portare a termine il tuo obiettivo. Se sei un ospite, cerca gli indizi nascosti.
+                Se sei un killer, porta a termine i tuoi piani senza farti scoprire.
+            </p>
+
+            <!-- Mostra le task -->
+            <ul class="task-list">
+                {% for task in tasks %}
+                    <li>{{ task }}</li>
+                {% endfor %}
+            </ul>
+
+            <!-- Sezione per i Killer -->
+            {% if role == "Killer" %}
+                <div class="victim-section">
+                    <h3>La tua vittima attuale:</h3>
+                    <p>
+                        {% if victim %}
+                            {{ victim }}
+                            <form action="/eliminate_victim" method="POST">
+                                <input type="hidden" name="killer" value="{{ character }}">
+                                <input type="hidden" name="victim" value="{{ victim }}">
+                                <button type="submit" class="start-button">Elimina Vittima</button>
+                            </form>
+                        {% else %}
+                            Nessuna vittima disponibile.
+                        {% endif %}
+                    </p>
+                </div>
+            {% endif %}
+
+            <!-- Intuito Sherlockiano -->
+            <div id="sherlockian-intuition" class="sherlockian-intuition">
+                <h3>Intuito Sherlockiano</h3>
+                <p>Usa una mossa speciale una sola volta durante il gioco:</p>
+                <form action="/use_special" method="POST">
+                    <input type="hidden" name="character" value="{{ character }}">
+                    <input type="hidden" name="role" value="{{ role }}">
+                    <button id="special-move-button" class="start-button" {% if special_move_used %}disabled{% endif %}>
+                        Usa la Mossa Speciale
+                    </button>
+                </form>
+                {% if special_move_used %}
+                    <p id="special-move-result" class="special-move-result">Mossa usata: {{ special_ability_used }}</p>
+                {% endif %}
+            </div>
+
+            <!-- Tasto per la Dashboard -->
+            <button onclick="location.href='/dashboard'" class="start-button">Vai alla Dashboard</button>
+        </div>
+    </div>
+</body>
+</html>

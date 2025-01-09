@@ -1,0 +1,14 @@
+ID,Special Power Name,Description,Role,Active
+1,Insightful Gaze,Determine if a specific event was influenced by a killer.,Victim,on
+2,Calm Resolve,Protect a guest from elimination for 20 minutes.,Killer,on
+3,Social Butterfly,Receive a free clue from the groom.,Victim,on
+4,Clear Eye,Identify one innocent player.,Victim,on
+5,Persuasive Charm,Convince another guest to perform a task on their behalf.,Victim,on
+6,Resilient Spirit,Restore a sabotaged clue.,Victim,on
+7,Physician’s Hands,Revive one eliminated guest.,Victim,on
+8,Shadow Move,Secretly switch places with another guest.,Victim,on
+9,Swift Escape,Avoid a suspicious task.,Victim,on
+10,Royal Insight,Determine if a clue is real or fake.,Victim,on
+11,Tinkerer’s Edge,Create a sabotaged clue.,Killer,on
+12,Quick Reflexes,Interrupt another player’s action to grab a clue.,Victim,on
+13,Keeper of Secrets,Free clue.,Victim,on

@@ -1,0 +1,126 @@
+/* Generale */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cormorant Garamond', serif; /* Font elegante */
+    background: #21232F;
+    background-size: cover;
+    color: #2d2d2d;
+}
+
+/* Contenitore principale */
+.container {
+    text-align: center;
+    padding: 50px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 8px solid #d4af37; /* Bordo oro */
+    max-width: 800px;
+    margin: 50px auto; /* Aggiunta di spazio sopra */
+    border-radius: 15px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5); /* Ombra elegante */
+}
+
+/* Intestazione */
+header h1 {
+    font-size: 42px; /* Font grande per maggiore eleganza */
+    color: #d4af37;
+    text-shadow: 3px 3px 5px #1a3e5f; /* Ombra blu */
+    font-family: 'Playfair Display', serif; /* Font decorativo */
+}
+
+/* Contenuto */
+.content h2 {
+    font-size: 24px;
+    color: #1a3e5f;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 18px;
+    line-height: 1.8; /* Spazio tra le righe */
+    color: #3e3e3e;
+    text-align: justify;
+    padding: 0 20px;
+}
+
+/* Lista delle task */
+.task-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.task-list li {
+    background: rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-left: 5px solid #d4af37; /* Colore oro */
+    border-radius: 5px;
+    font-size: 18px;
+    font-family: 'Cormorant Garamond', serif;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Bottone */
+.start-button {
+    background-color: #1a3e5f;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Playfair Display', serif;
+    padding: 12px 30px;
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+    cursor: pointer;
+    margin-top: 30px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.start-button:hover {
+    background-color: #d4af37;
+    color: #1a3e5f;
+}
+
+/* Sezione Intuito Sherlockiano */
+.sherlockian-intuition {
+    margin-top: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 5px solid #d4af37;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.sherlockian-intuition h3 {
+    font-family: 'Playfair Display', serif;
+    color: #1a3e5f;
+    margin-bottom: 10px;
+}
+
+.special-move-result {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: #3e3e3e;
+    margin-top: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #d4af37;
+}
+
+progress {
+    width: 100%;
+    height: 20px;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Great+Vibes&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dashboard dei Progressi</h1>
+        </header>
+        <div class="content">
+            <h2>Progressi dei Giocatori</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Personaggio</th>
+                        <th>Ruolo</th>
+                        <th>Task Completate</th>
+                        <th>Progresso</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for player in progress_data %}
+                    <tr>
+                        <td>{{ player.character }}</td>
+                        <td>{{ player.role }}</td>
+                        <td>{{ player.completed_tasks }} / {{ player.total_tasks }}</td>
+                        <td>
+                            <progress value="{{ player.completed_tasks }}" max="{{ player.total_tasks }}"></progress>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h2>Abilità Speciali Usate</h2>
+            <ul>
+                {% if special_abilities %}
+                    {% for ability in special_abilities %}
+                        <li><strong>{{ ability.character }}</strong>: {{ ability.ability }}</li>
+                    {% endfor %}
+                {% else %}
+                    <p>Nessuna abilità speciale usata finora.</p>
+                {% endif %}
+            </ul>
+
+            <!-- Pulsante per tornare alla pagina delle task -->
+            <form action="/tasks/{{ session.role }}/{{ session.character }}" method="GET">
+                <button class="start-button">Torna alla Pagina delle Task</button>
+            </form>
+
+            <!-- Pulsante per tornare alla Home -->
+            <button onclick="location.href='/'" class="start-button">Torna alla Home</button>
+        </div>
+    </div>
+</body>
+</html>
